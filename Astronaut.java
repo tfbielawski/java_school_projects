@@ -1,24 +1,33 @@
-package gov.nasa.personnel;
-public class Astronaut
-{
-    private String astronautName;
-    private double astronautHeight; //in cm
-    private double astronautWeight; //in kilos
+package astronaut;
 
-    //default constructor, default values
-    public Astronaut()
-    {
-        astronautName = "";
-        astronautHeight = 0;
-        astronautWeight = 0;
-    }
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Period;
 
-    //Overloaded constructor
-    public Astronaut(String astronautName, double astronautHeight, double astronautWeight)
-    {
-        this.astronautName = astronautName;
-        this.astronautHeight = astronautHeight;
-        this.astronautWeight = astronautWeight;
-    }
+public class Astronaut {
+   private String name;
+   private double heightCm; // height in centimeters
+   private double weightKg; // weight in kilograms
+   private LocalDateTime timeOfTravel;
+   private Period stay;
+   private LocalDate estDeparture;
+
+   // overload, create an astronaut with specified name, height, weight,
+   // timeOfTravel, stay and estDeparture
+   public Astronaut(String name, double heightCm, double weightKg, LocalDateTime timeOfTravel, Period stay,
+           LocalDate estDeparture) {
+       this.name = name;
+       this.heightCm = heightCm;
+       this.weightKg = weightKg;
+       this.timeOfTravel = timeOfTravel;
+       this.stay = stay;
+       this.estDeparture = estDeparture;
+   }
+
+   @Override
+   public String toString() {
+       return "name: " + name + "height: " + heightCm + " (cm)\n" + "weight: " + weightKg + " (kg)\n" + "arrival: "
+               + timeOfTravel + "\n" + "stay length: " + (stay.getDays()) + " days\n" + "est.return: " + estDeparture;
+   }
 
 }
